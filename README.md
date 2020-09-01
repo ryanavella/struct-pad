@@ -8,6 +8,8 @@ Padding types to enable memory layout optimizations.
 ## Example
 
 ```rust
+use struct_pad::{Pad, PadU0, PadU8, PadU16, PadU32};
+
 struct Example {
     field1: u64,
     field2: u8,
