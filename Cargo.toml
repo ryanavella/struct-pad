@@ -1,0 +1,15 @@
+[package]
+name = "struct-pad"
+version = "0.1.0"
+authors = ["Ryan Avella"]
+edition = "2018"
+description = "Padding types to enable memory layout optimizations."
+documentation = "https://docs.rs/struct-pad"
+readme = "README.md"
+homepage = "https://github.com/ryanavella/struct-pad"
+repository = "https://github.com/ryanavella/struct-pad"
+license = "Unlicense OR MIT"
+keywords = ["struct", "field", "pad", "padding", "no-std"]
+categories = ["memory-management", "rust-patterns", "no-std", "embedded"]
+
+[dependencies]
