@@ -418,6 +418,25 @@ impl Clone for PadU64Inner {
 
 impl Copy for PadU64Inner {}
 
+/// A padding type with the same layout as `usize`.
+///
+/// `PadUsize` is a type alias to whichever padding type is
+/// the same size as `usize`.
+#[cfg(target_pointer_width = "16")]
+pub type PadUsize = PadU16;
+/// A padding type with the same layout as `usize`.
+///
+/// `PadUsize` is a type alias to whichever padding type is
+/// the same size as `usize`.
+#[cfg(target_pointer_width = "32")]
+pub type PadUsize = PadU32;
+/// A padding type with the same layout as `usize`.
+///
+/// `PadUsize` is a type alias to whichever padding type is
+/// the same size as `usize`.
+#[cfg(target_pointer_width = "64")]
+pub type PadUsize = PadU64;
+
 mod private {
     pub use super::*;
     pub trait Sealed {}
@@ -440,6 +459,7 @@ mod tests {
         assert_eq!(align_of::<PadU16>(), align_of::<u16>());
         assert_eq!(align_of::<PadU32>(), align_of::<u32>());
         assert_eq!(align_of::<PadU64>(), align_of::<u64>());
+        assert_eq!(align_of::<PadUsize>(), align_of::<usize>());
     }
 
     #[test]
@@ -449,6 +469,7 @@ mod tests {
         assert_eq!(align_of::<Option<PadU16>>(), align_of::<u16>());
         assert_eq!(align_of::<Option<PadU32>>(), align_of::<u32>());
         assert_eq!(align_of::<Option<PadU64>>(), align_of::<u64>());
+        assert_eq!(align_of::<Option<PadUsize>>(), align_of::<usize>());
     }
 
     #[test]
@@ -458,6 +479,7 @@ mod tests {
         assert_eq!(size_of::<PadU16>(), size_of::<u16>());
         assert_eq!(size_of::<PadU32>(), size_of::<u32>());
         assert_eq!(size_of::<PadU64>(), size_of::<u64>());
+        assert_eq!(size_of::<PadUsize>(), size_of::<usize>());
     }
 
     #[test]
@@ -467,6 +489,7 @@ mod tests {
         assert_eq!(size_of::<Option<PadU16>>(), size_of::<u16>());
         assert_eq!(size_of::<Option<PadU32>>(), size_of::<u32>());
         assert_eq!(size_of::<Option<PadU64>>(), size_of::<u64>());
+        assert_eq!(size_of::<Option<PadUsize>>(), size_of::<usize>());
     }
 
     #[test]
@@ -475,6 +498,7 @@ mod tests {
         assert_eq!(PadU16::VALUE.0 as u16, 0);
         assert_eq!(PadU32::VALUE.0 as u32, 0);
         assert_eq!(PadU64::VALUE.0 as u64, 0);
+        assert_eq!(PadUsize::VALUE.0 as usize, 0);
     }
 
     #[test]
@@ -483,5 +507,6 @@ mod tests {
         assert_eq!(PadU16::default().0 as u16, 0);
         assert_eq!(PadU32::default().0 as u32, 0);
         assert_eq!(PadU64::default().0 as u64, 0);
+        assert_eq!(PadUsize::default().0 as usize, 0);
     }
 }
