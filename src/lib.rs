@@ -1,4 +1,6 @@
 #![no_std]
+#![allow(clippy::incorrect_clone_impl_on_copy_type)]
+#![allow(clippy::incorrect_partial_ord_impl_on_ord_type)]
 //! Padding types to enable memory layout optimizations.
 //!
 //! # Example
