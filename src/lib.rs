@@ -1,7 +1,6 @@
 #![no_std]
 #![allow(clippy::incorrect_clone_impl_on_copy_type)]
 #![allow(clippy::incorrect_partial_ord_impl_on_ord_type)]
-#![allow(clippy::upper_case_acronyms)]
 //! Padding types to enable memory layout optimizations.
 //!
 //! # Example
@@ -155,7 +154,7 @@ impl Ord for PadU8 {
 }
 
 impl Pad for PadU8 {
-    const VALUE: Self = Self(PadU8Inner::VALUE);
+    const VALUE: Self = Self(PadU8Inner::Value);
 }
 
 impl PartialEq for PadU8 {
@@ -177,14 +176,14 @@ impl PartialOrd for PadU8 {
 #[derive(Debug)]
 #[repr(u8)]
 enum PadU8Inner {
-    VALUE = 0,
+    Value = 0,
 }
 
 impl Clone for PadU8Inner {
     #[inline]
     #[must_use]
     fn clone(&self) -> Self {
-        Self::VALUE
+        Self::Value
     }
 }
 
@@ -232,7 +231,7 @@ impl Ord for PadU16 {
 }
 
 impl Pad for PadU16 {
-    const VALUE: Self = Self(PadU16Inner::VALUE);
+    const VALUE: Self = Self(PadU16Inner::Value);
 }
 
 impl PartialEq for PadU16 {
@@ -254,14 +253,14 @@ impl PartialOrd for PadU16 {
 #[derive(Debug)]
 #[repr(u16)]
 enum PadU16Inner {
-    VALUE = 0,
+    Value = 0,
 }
 
 impl Clone for PadU16Inner {
     #[inline]
     #[must_use]
     fn clone(&self) -> Self {
-        Self::VALUE
+        Self::Value
     }
 }
 
@@ -309,7 +308,7 @@ impl Ord for PadU32 {
 }
 
 impl Pad for PadU32 {
-    const VALUE: Self = Self(PadU32Inner::VALUE);
+    const VALUE: Self = Self(PadU32Inner::Value);
 }
 
 impl PartialEq for PadU32 {
@@ -331,14 +330,14 @@ impl PartialOrd for PadU32 {
 #[derive(Debug)]
 #[repr(u32)]
 enum PadU32Inner {
-    VALUE = 0,
+    Value = 0,
 }
 
 impl Clone for PadU32Inner {
     #[inline]
     #[must_use]
     fn clone(&self) -> Self {
-        Self::VALUE
+        Self::Value
     }
 }
 
@@ -386,7 +385,7 @@ impl Ord for PadU64 {
 }
 
 impl Pad for PadU64 {
-    const VALUE: Self = Self(PadU64Inner::VALUE);
+    const VALUE: Self = Self(PadU64Inner::Value);
 }
 
 impl PartialEq for PadU64 {
@@ -408,14 +407,14 @@ impl PartialOrd for PadU64 {
 #[derive(Debug)]
 #[repr(u64)]
 enum PadU64Inner {
-    VALUE = 0,
+    Value = 0,
 }
 
 impl Clone for PadU64Inner {
     #[inline]
     #[must_use]
     fn clone(&self) -> Self {
-        Self::VALUE
+        Self::Value
     }
 }
 
